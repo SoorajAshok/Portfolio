@@ -10,11 +10,14 @@ class About(models.Model):
     email = models.EmailField(blank=True, null=True)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True, null=True)  # Phone number field allowing blank values
-    profile_about = models.CharField(max_length=800, default="Profile Summary")
+    profile_about = models.TextField(null=True, blank=True)
+    profile_about2 = models.TextField(null=True, blank=True)
     city = models.CharField(max_length=200, default = "Saint John, New Brunswick, Canada")
     degree = models.CharField(max_length=100, default = "Masters in Computer Applications")
     roles = models.CharField(max_length=100, default = "Web Developer & Freelancer")
     profileImage = models.ImageField(upload_to='images/', null=True)
+    experience = models.IntegerField(default = 3)
+
     # STATUS_CHOICES = (
     #     ('OTW', 'OpenToWork'),
     #     ('CW', 'CurrentlyWorking'),
