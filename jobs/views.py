@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import Job
+from .models import Job, About
 
 # Create your views here.
 def homepage(request):
-    jobs = Job.objects
-    return render(request, 'jobs/index.html', {'jobs':jobs})
+    about = About.objects
+    return render(request, 'jobs/index.html', {'abouts':about})
